@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-vfne7df*imyyv$a_2pfgyi5$en056d2m38d3y3gif)3-9df08h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app',
+                 'localhost']
 
 
 # Application definition
@@ -63,7 +64,10 @@ ROOT_URLCONF = "quiz_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, "quiz/templates"),
+            os.path.join(BASE_DIR, "users/templates"),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
