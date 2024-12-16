@@ -1,0 +1,25 @@
+{% extends "quiz/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section mx-auto mt-4" style="width: 350px;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="pb-4 fw-bold text-center mt-2">Log In</h5>
+          <form method="post">
+            {% csrf_token %}
+                {{form|crispy}}
+            <div class="form-group mt-4 text-center">
+              <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+          </form>
+          <div class="mt-5">
+            <small class="">
+              Don't have an account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+            </small>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+{% endblock content %}

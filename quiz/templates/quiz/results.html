@@ -1,0 +1,18 @@
+{% extends "quiz/base.html" %}
+{% block content %}
+{% load custom_filters %}
+<div>
+    <h2>Results for Session: {{ session.name }}</h2>
+    <p>You answered {{ correct_count }} out of {{ total_questions }} questions correctly.</p>
+    <ul>
+        {% for question in questions %}
+        <li>
+            <strong>{{ question.text }}</strong><br>
+            Your answer: {{ progress|get_item:question.id|default:"No Answer" }}<br>
+            Correct answer: {{ question.correct_option }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'start' %}" class="btn btn-primary">Back to Home</a>
+</div>
+{% endblock %}

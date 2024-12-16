@@ -1,0 +1,40 @@
+{% extends "quiz/base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <form class="w-50" action="{% url 'create_session' %}" method="post">
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      {% csrf_token %}
+        <input 
+            name="name"
+            style="border-radius: 25px;"
+            type="text" 
+            class="form-control mb-3 w-50" 
+            placeholder="Session name" 
+            style="max-width: 400px;"
+            required
+        />
+        <button class="btn btn-lg" style="background-color: rgb(48, 211, 72); border-radius:25px; font-weight: 900;">Start Session</button>
+    </div>
+    </form>
+  <!-- Previous Sessions Section -->
+  <div class="text-white w-75" style="max-width: 600px;">
+    <h3 class="mb-3">Previous Sessions</h3>
+    <ul class="list-group">
+        {% for session in previous_sessions %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'play_session' session.id %}">{{ session.name }}</a>
+            <span class="badge badge-primary badge-pill">{{ session.date }}</span>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted text-center">No previous sessions found.</li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+{% else %}
+<div class="d-flex justify-content-center">
+  <button href="" class="btn btn-lg" style="background-color: rgb(48, 211, 72); border-radius:25px; font-weight: 900;">Start Session</button>
+</div>
+{% endif %}
+{% endblock content %}

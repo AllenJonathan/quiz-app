@@ -1,0 +1,99 @@
+body {
+  background-color: rgb(45, 64, 89);
+  background-color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.main-div {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+/* navbar */
+.navbar {
+  background-color: #EA5455;
+  background-color: #000000;
+  font-weight: bold;
+}
+
+.nav-div {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.navbar-brand {
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+/* cards */
+.card {
+  background-color: #FFF5E4;
+  background-color: #000000;
+  border-radius: 0%;
+}
+
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  
+}
+
+.card-img-div {
+  width: 200px;
+  padding: 12px;
+}
+
+@media (max-width: 576px) {
+  .hackathon-post {
+    width: 201px;
+  }
+}
+
+.card-title {
+  font-weight:900;
+}
+
+/* extras */
+
+.asteriskField {
+  color: red;
+}
+
+/* post detail */
+
+.header {
+  position: relative;
+  height: 50vh; /* Set the height of the header to 40% of the viewport height */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent, rgba(45, 64, 89, 1)); /* Gradient from transparent to bg */
+  z-index: 1;
+  mask-image: linear-gradient(to bottom, transparent, black); /* Gradient mask from transparent to black */
+}
+
+.header img {
+  position: relative;
+  width: 100%; /* Make the image width 100% to cover the entire header */
+  height: auto; /* Maintain the image's aspect ratio */
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  z-index: 2;
+  }
+
+.bottom-details {
+  bottom: 20px;
+}
