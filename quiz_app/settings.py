@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,8 +27,7 @@ SECRET_KEY = "django-insecure-vfne7df*imyyv$a_2pfgyi5$en056d2m38d3y3gif)3-9df08h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app',
-                 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -45,29 +45,27 @@ INSTALLED_APPS = [
     "bootstrap4",
     "django_forms_bootstrap",
     "crispy_forms",
-    "whitenoise.runserver_nostatic"
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = "quiz_app.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            os.path.join(BASE_DIR, "quiz/templates"),
-            os.path.join(BASE_DIR, "users/templates"),
-        ],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -80,17 +78,18 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "quiz_app.wsgi.app"
+WSGI_APPLICATION = "quiz_app.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # }
+    'default': dj_database_url.config(default='postgresql://quiz_app_db_k2qs_user:wy6xZp19zD0ZaS5QjTk8Qm52eXwH7HEa@dpg-ctg4v39u0jms73advgug-a/quiz_app_db_k2qs')
 }
 
 
