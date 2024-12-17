@@ -85,11 +85,11 @@ WSGI_APPLICATION = "quiz_app.wsgi.application"
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
-    'default': dj_database_url.config(default='postgresql://quiz_app_db_k2qs_user:wy6xZp19zD0ZaS5QjTk8Qm52eXwH7HEa@dpg-ctg4v39u0jms73advgug-a/quiz_app_db_k2qs')
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+    # 'default': dj_database_url.config(default='postgresql://quiz_app_db_k2qs_user:wy6xZp19zD0ZaS5QjTk8Qm52eXwH7HEa@dpg-ctg4v39u0jms73advgug-a/quiz_app_db_k2qs')
 }
 
 

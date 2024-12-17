@@ -88,4 +88,5 @@ def show_results(request, session_id):
         'progress': progress,
         'correct_count': correct_count,
         'total_questions': len(questions),
+        'percentage': int((correct_count/len(questions))*100),
     })

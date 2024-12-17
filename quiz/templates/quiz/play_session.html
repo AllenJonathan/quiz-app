@@ -1,31 +1,46 @@
 {% extends "quiz/base.html" %}
 {% block content %}
 {% load custom_filters %}
-<div>
-    <h2>Session: {{ session.name }}</h2>
+
+<div class="container main-div">
+    <h2 class="text-center mb-4">Session: {{ session.name }}</h2>
     <form method="post">
         {% csrf_token %}
         {% for question in questions %}
         <div class="mb-4">
-            <p><strong>{{ forloop.counter }}. {{ question.text }}</strong></p>
-            <div>
-                <label><input type="radio" name="question_{{ question.id }}" value="A" 
-                    {% if progress|get_item:question.id == "A" %}checked{% endif %}> {{ question.option_a }}</label><br>
-                <label><input type="radio" name="question_{{ question.id }}" value="B" 
-                    {% if progress|get_item:question.id == "B" %}checked{% endif %}> {{ question.option_b }}</label><br>
-                <label><input type="radio" name="question_{{ question.id }}" value="C" 
-                    {% if progress|get_item:question.id == "C" %}checked{% endif %}> {{ question.option_c }}</label><br>
-                <label><input type="radio" name="question_{{ question.id }}" value="D" 
-                    {% if progress|get_item:question.id == "D" %}checked{% endif %}> {{ question.option_d }}</label>
+            <p class="question-text"><strong>{{ forloop.counter }}. {{ question.text }}</strong></p>
+            <div class="question-options">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="question_{{ question.id }}_A" name="question_{{ question.id }}" value="A" 
+                        {% if progress|get_item:question.id == "A" %}checked{% endif %} 
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="question_{{ question.id }}_A">{{ question.option_a }}</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="question_{{ question.id }}_B" name="question_{{ question.id }}" value="B" 
+                        {% if progress|get_item:question.id == "B" %}checked{% endif %} 
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="question_{{ question.id }}_B">{{ question.option_b }}</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="question_{{ question.id }}_C" name="question_{{ question.id }}" value="C" 
+                        {% if progress|get_item:question.id == "C" %}checked{% endif %} 
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="question_{{ question.id }}_C">{{ question.option_c }}</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="question_{{ question.id }}_D" name="question_{{ question.id }}" value="D" 
+                        {% if progress|get_item:question.id == "D" %}checked{% endif %} 
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="question_{{ question.id }}_D">{{ question.option_d }}</label>
+                </div>
             </div>
         </div>
         {% endfor %}
-        <button type="submit" name="action" value="save" class="btn btn-primary">Save Progress</button>
-        <button type="submit" name="action" value="submit" class="btn btn-success mt-3">Submit Session</button>
-    </form>
-    <form method="post" action="{% url 'submit_session' session.id %}">
-        {% csrf_token %}
-        
+        <div class="text-center">
+            <button type="submit" name="action" value="save" class="btn btn-primary">Save Progress</button>
+            <button type="submit" name="action" value="submit" class="btn btn-success">Submit Session</button>
+        </div>
     </form>
 </div>
 {% endblock %}

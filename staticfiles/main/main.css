@@ -1,5 +1,4 @@
 body {
-  background-color: rgb(45, 64, 89);
   background-color: #000000;
   font-family: 'Montserrat', sans-serif;
   color: white;
@@ -10,9 +9,7 @@ body {
   padding-right: 10%;
 }
 
-/* navbar */
 .navbar {
-  background-color: #EA5455;
   background-color: #000000;
   font-weight: bold;
 }
@@ -26,74 +23,94 @@ body {
   font-family: 'Permanent Marker', cursive;
 }
 
-
-/* cards */
-.card {
-  background-color: #FFF5E4;
-  background-color: #000000;
-  border-radius: 0%;
-}
-
-.card-img-top {
-  width: 200px;
-  height: 200px;
-  
-}
-
-.card-img-div {
-  width: 200px;
-  padding: 12px;
-}
-
-@media (max-width: 576px) {
-  .hackathon-post {
-    width: 201px;
-  }
-}
-
-.card-title {
-  font-weight:900;
-}
-
-/* extras */
-
 .asteriskField {
   color: red;
 }
 
-/* post detail */
-
-.header {
-  position: relative;
-  height: 50vh; /* Set the height of the header to 40% of the viewport height */
-  overflow: hidden; /* Hide any overflowing content */
+.container {
+  max-width: 800px;
 }
 
-.header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(transparent, rgba(45, 64, 89, 1)); /* Gradient from transparent to bg */
-  z-index: 1;
-  mask-image: linear-gradient(to bottom, transparent, black); /* Gradient mask from transparent to black */
+h2 {
+  color: #EA5455;
 }
 
-.header img {
-  position: relative;
-  width: 100%; /* Make the image width 100% to cover the entire header */
-  height: auto; /* Maintain the image's aspect ratio */
+.question-text {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #FFF5E4; /* Changed color for better contrast */
 }
 
-.bottom-left {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
-  z-index: 2;
-  }
+.question-options {
+  display: flex;
+  flex-direction: column;
+}
 
-.bottom-details {
-  bottom: 20px;
+.custom-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.custom-control-input {
+  margin-right: 10px;
+  width: 24px; /* Ensuring consistent size */
+  height: 24px; /* Ensuring consistent size */
+  border-color: #FFF5E4; /* Changed border color for better visibility */
+  background-color: #FFF5E4; /* Custom background color for radio button */
+}
+
+.custom-control-label {
+  color: white; /* Matching the text color to the background */
+  font-size: 14px;
+}
+
+.custom-control-indicator {
+  border-color: #FFF5E4; /* Border color of the radio button */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.list-group-item {
+  background-color: #FFF5E4; /* Background for the result items */
+  color: #000000; /* Text color */
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.progress-item {
+  margin-top: 5px;
+}
+
+a.btn {
+  background-color: #EA5455; /* Button background color */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+a.btn:hover {
+  background-color: #D9374D; /* Hover effect */
+}
+
+.progress {
+  height: 25px;
+  border-radius: 5px;
+  background-color: #555; /* Darker background for the progress bar */
+}
+
+.progress-bar {
+  background-color: #EA5455; /* Progress bar color */
+  text-align: center;
+  line-height: 25px; /* Center text vertically */
+  color: white;
+  font-weight: bold;
 }
